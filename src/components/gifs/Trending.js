@@ -18,7 +18,7 @@ async componentDidMount() {
 render() {
   // console.log(this.state.trending)
   return (
-    <section className="section">
+    <section className="section trending">
       <div className="container">
         <div className="columns is-multiline">
           {this.state.trending.map(gif => (

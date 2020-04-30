@@ -6,7 +6,7 @@ const Favourites = () => {
   // console.log(realfavourites)
   if (!realfavourites) return 'Oops, add your favourites'
   return (
-    <section className="section">
+    <section className="section favourites">
       <div className="container">
         <div className="columns is-multiline">
           {realfavourites.map((gif, i) => (

@@ -1,7 +1,6 @@
 import React from 'react'
 
 import CopyButton from '../common/CopyButton'
-
 import FavouritesError from './FavouritesError'
 
 const Favourites = () => {

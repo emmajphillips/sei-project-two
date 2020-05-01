@@ -1,6 +1,9 @@
 import React from 'react'
 import axios from 'axios'
+
 import TrendingCard from './TrendingCard'
+import Spinner from '../common/Spinner'
+
 class Trending extends React.Component {
 state = {
   trending: []

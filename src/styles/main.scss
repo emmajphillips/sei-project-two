@@ -9,8 +9,20 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   background-color: #000;
   height: 100%;
+}
+
+.fa-heart {
+  color: red;
+}
+      
+footer {
+  margin-top: 1em;
+  padding: 1rem 0;
+  background-color: lightgray;
 }
 
 nav.navbar {
@@ -31,11 +43,19 @@ img {
   border: 1px solid #FFF;
 }
 
+// .Loading {
+// 	text-align: center;
+// }
+
 // Home page
 section.home-page {
-  max-height: 100vh;
+  max-height: 90vh;
+  div.container {
+    height: 100%;
+  }
   h1.title {
-    padding: 1.5em 0;
+    margin: 0 auto;
+    padding: 1em 0;
     font-family: 'Press Start 2P', sans-serif;
     text-shadow: 2px 2px #7EE8FA;
     color: #FFF;

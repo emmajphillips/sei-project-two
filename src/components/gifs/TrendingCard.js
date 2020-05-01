@@ -1,4 +1,9 @@
 import React from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+
+import CopyButton from '../common/CopyButton'
+import FavouritesButton from '../common/FavouritesButton'
+import Spinner from '../common/Spinner'
 
 const TrendingCard = ({ images }) => {
   // console.log(images.original.url)
@@ -8,11 +13,19 @@ const TrendingCard = ({ images }) => {
       <div className="card">
         <div className="card-image">
           <figure className="image is-4by3">
-            <img src={images.original.url} alt={'gif'} />
+            {/* <img src={images.original.url} alt={'gif'} /> */}
+            <LazyLoadImage
+              alt={'gif'}
+              src={images.original.url}
+              placeholder={<span>Hello</span>}
+            />
           </figure>
         </div>
+        <CopyButton copy={images.original.url} />
+        <FavouritesButton favourite={images.original.url} />
       </div>
     </div>
   )
 }
+
 export default TrendingCard

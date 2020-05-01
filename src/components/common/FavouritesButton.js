@@ -1,16 +1,13 @@
 import React from 'react'
-
+import { toast } from '../../lib/notifications'
 const favourites = []
-
 const FavouritesButton = (favourite) => {
-  
   const addToFavourites = () => {
-    console.log('this is the url', favourite)
+    toast('Added')
     favourites.push(favourite.favourite)
     localStorage.setItem('favourites', JSON.stringify(favourites))
     console.log('added to:', favourites)
   }
-
   return (
     <button onClick={addToFavourites} type="button" className="button gif-button">
       <span className="icon">
@@ -20,5 +17,4 @@ const FavouritesButton = (favourite) => {
     </button>
   )
 }
-
 export default FavouritesButton

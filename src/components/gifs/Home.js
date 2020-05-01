@@ -3,7 +3,6 @@ import { getPageLoadGif, getSearchResultGif, getTryAgainGif } from '../../lib/ap
 
 import FavouritesButton from '../common/FavouritesButton'
 import CopyButton from '../common/CopyButton'
-import Spinner from '../common/Spinner'
 
 class Home extends React.Component {
   state = {

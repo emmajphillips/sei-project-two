@@ -1,6 +1,8 @@
 import React from 'react'
 import { toast } from '../../lib/notifications'
+
 const favourites = []
+
 const FavouritesButton = (favourite) => {
   const addToFavourites = () => {
     toast('Added')
@@ -17,4 +19,5 @@ const FavouritesButton = (favourite) => {
     </button>
   )
 }
+
 export default FavouritesButton

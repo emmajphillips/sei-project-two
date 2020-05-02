@@ -1,6 +1,7 @@
 import React from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { toast } from '../../lib/notifications'
+
 const CopyButton = (copy) => {
   const copyToast = () => {
     return toast('Copied')
@@ -15,4 +16,5 @@ const CopyButton = (copy) => {
     </CopyToClipboard>
   )
 }
+
 export default CopyButton

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const baseUrl = 'https://api.giphy.com/v1/gifs'
 
-const apiKey = 'api_key=BKW4vtptPcAlCG1mhESJtSgdfRScl4eQ'
+const apiKey = `api_key=${process.env.REACT_APP_GIPHY_KEY}`
 
 export const getPageLoadGif = () => {
   return axios.get(`${baseUrl}/translate?${apiKey}&s=funny`)

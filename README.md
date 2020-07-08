@@ -19,9 +19,11 @@ To install and run this app, make sure you have Yarn and run  `yarn install` to 
 ## Table of contents
 
 * [Brief](#Brief)
+* [Build](#Build)
 * [Final product](#Final-product)
 * [Wins and challenges](#Wins-and-challenges)
 * [Bugs](#Bugs)
+* [Conclusion](#In-summary)
 
 ## Brief
 
@@ -43,6 +45,45 @@ To install and run this app, make sure you have Yarn and run  `yarn install` to 
 * Node
 * Axios
 * JSON
+
+## Build
+
+### Day one
+
+We spent the first afternoon of the project coming up with different ideas and looking for a suitable API for the project. There were a number of APIs that we quite liked, but found little to no documentation, and, for some, the endpoints had deprecated, so they were not viable options. We finally settled on the GIPHY API which has brilliant developer pages and thorough documentation to understand the various endpoints and how requests to the API should be structured.
+
+After that, we started on our wireframe. This came along quite quickly, and we successfully followed it throughout the project.
+
+![What do you meme? wireframe](src/assets/wireframe.png)
+
+### Day two
+
+The second day was dedicated wholly to building the application with React. We pair programmed throughout the day to create many of the key features. Each feature required its own request to the GIPHY API. We put these into their own library, so we could import into the various components that would require them.
+
+For the home page, we preloaded with initial GIF via the 'translate' endpoint. We hard coded the search query to be 'funny', as we felt this would produce a strong and entertaining result.
+```
+export const getPageLoadGif = () => {
+  return axios.get(`${baseUrl}/translate?${apiKey}&s=funny`)
+}
+```
+We used the translate endpoint again for searches through the input on the home page.
+```
+export const getSearchResultGif = tags => {
+  return axios.get(`${baseUrl}/translate?${apiKey}&s=${tags}`)
+}
+```
+If users were unhappy with the result, there was an option to 'Try again'. This used the 'random' endpoint which produced a wider variety of results. We chose this, as the translate endpoint seemed to favour only a handful of GIFs, which was too easy to circulate through, producing duplicate results.
+```
+export const getTryAgainGif = tags => {
+  return axios.get(`${baseUrl}/random?${apiKey}&tag=${tags}`)
+}
+```
+For the trending page, we used the 'trending' endpoint:
+```
+export const getTrendingGifs = () => {
+  return axios.get(`${baseUrl}/trending?${apiKey}&limit=20&rating=G`)
+} 
+```
 
 ## Final product
 
@@ -85,3 +126,7 @@ There were a few bugs around styling which ulitmately were very minor and had to
 ### Future content
 
 I was/still am very proud of what we were able to produce with the given brief. Future content would likely be to allow users to create, upload and submit their own GIFs to GIPHY through our application. I would also want to see if some of the design and layout could be improved either by walking back some of the Bulma implementaion or by working a bit more harmoniously with it.
+
+## In summary
+
+I thoroughly enjoyed working on this project and being able to pair code it with someone on the course. It was a really fun assignment which deepened our understanding of React and working with third-party APIs. 

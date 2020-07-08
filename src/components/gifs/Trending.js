@@ -1,6 +1,6 @@
 import React from 'react'
-import axios from 'axios'
 
+import { getTrendingGifs } from '../../lib/api'
 import TrendingCard from './TrendingCard'
 import Spinner from '../common/Spinner'
 
@@ -9,10 +9,8 @@ state = {
   trending: []
 }
 async componentDidMount() {
-  // console.log(this.state.tredning)
   try {
-    const res = await axios.get('https://api.giphy.com/v1/gifs/trending?api_key=BKW4vtptPcAlCG1mhESJtSgdfRScl4eQ&limit=20&rating=G')
-    // console.log(res.data.data)
+    const res = await getTrendingGifs()
     this.setState({ trending: res.data.data })
   } catch (err) {
     console.log(err)

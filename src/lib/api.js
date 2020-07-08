@@ -15,3 +15,7 @@ export const getSearchResultGif = tags => {
 export const getTryAgainGif = tags => {
   return axios.get(`${baseUrl}/random?${apiKey}&tag=${tags}`)
 }
+
+export const getTrendingGifs = () => {
+  return axios.get(`${baseUrl}/trending?${apiKey}&limit=20&rating=G`)
+} 

@@ -10,7 +10,6 @@ const TrendingCard = ({ images }) => {
       <div className="card">
         <div className="card-image">
           <figure className="image is-4by3">
-            {/* <img src={images.original.url} alt={'gif'} /> */}
             <LazyLoadImage
               alt={"gif"}
               src={images.original.url}

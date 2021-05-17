@@ -3,7 +3,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import CopyButton from "../common/CopyButton";
 import FavouritesButton from "../common/FavouritesButton";
-import Spinner from "../common/Spinner";
 
 const TrendingCard = ({ images }) => {
   return (

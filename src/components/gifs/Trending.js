@@ -2,7 +2,6 @@ import React from "react";
 
 import { getTrendingGifs } from "../../lib/api";
 import TrendingCard from "./TrendingCard";
-import Spinner from "../common/Spinner";
 
 class Trending extends React.Component {
   state = {

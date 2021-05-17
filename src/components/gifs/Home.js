@@ -1,59 +1,53 @@
-import React from 'react'
-import { getPageLoadGif, getSearchResultGif, getTryAgainGif } from '../../lib/api'
+import React from "react";
+import {
+  getPageLoadGif,
+  getSearchResultGif,
+  getTryAgainGif,
+} from "../../lib/api";
 
-import FavouritesButton from '../common/FavouritesButton'
-import CopyButton from '../common/CopyButton'
+import FavouritesButton from "../common/FavouritesButton";
+import CopyButton from "../common/CopyButton";
 
 class Home extends React.Component {
   state = {
     gifs: [],
-    tags: '',
-    copied: false
-  }
+    tags: "",
+    copied: false,
+  };
 
   async componentDidMount() {
-    // console.log(this.state.tags)
     try {
-      // console.log(res.data.data.images.original)
-      const res = await getPageLoadGif()
-      this.setState({ gifs: res.data.data.images.original })
+      const res = await getPageLoadGif();
+      this.setState({ gifs: res.data.data.images.original });
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
-  handleChange = event => {
-  // console.log(event.target.value)
-    this.setState({ tags: event.target.value })
-  }
+  handleChange = (event) => {
+    this.setState({ tags: event.target.value });
+  };
 
   handleSubmit = async (event) => {
-    console.log('clicked search')
-    event.preventDefault()
+    event.preventDefault();
     try {
-      const res = await getSearchResultGif(this.state.tags)
-      // console.log(res.data.data)
-      this.setState({ gifs: res.data.data.images.original })
+      const res = await getSearchResultGif(this.state.tags);
+      this.setState({ gifs: res.data.data.images.original });
     } catch (err) {
-      console.log(err.response)
+      console.log(err.response);
     }
-  }
+  };
 
-  handleClick = async() => {
-    console.log('clicked try again')
+  handleClick = async () => {
     try {
-      const res = await getTryAgainGif(this.state.tags)
-      console.log(res.data.data)
-      this.setState({ gifs: res.data.data.images.original })
+      const res = await getTryAgainGif(this.state.tags);
+      this.setState({ gifs: res.data.data.images.original });
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   render() {
-    // console.log(this.state.gifs.url)
-    // console.log(this.state.tags)
-    // console.log(...this.state.favourites)
     return (
       <section className="section home-page">
         <div className="container">
@@ -62,28 +56,39 @@ class Home extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <div className="field has-addons">
                 <div className="control is-expanded">
-                  <input 
-                    className="input is-medium" 
+                  <input
+                    className="input is-medium"
                     placeholder="Search for GIF"
                     name="name"
                     onChange={this.handleChange}
                   />
                 </div>
-                <button type="submit" className="button is-medium">Search</button>
+                <button type="submit" className="button is-medium">
+                  Search
+                </button>
               </div>
             </form>
           </div>
           <div className="column is-6 is-offset-3">
             <div className="control">
-              <img className="gif" src={this.state.gifs.url} alt={this.state.gifs.name}/>
+              <img
+                className="gif"
+                src={this.state.gifs.url}
+                alt={this.state.gifs.name}
+              />
             </div>
             <div className="column">
               <div className="buttons control is-centered">
-                <button onClick={this.handleClick} type="button" className="button gif-button">
+                <button
+                  onClick={this.handleClick}
+                  type="button"
+                  className="button gif-button"
+                >
                   <span className="icon">
                     <i className="far fa-grin-tongue-squint"></i>
                   </span>
-                  <span>Try again</span></button>
+                  <span>Try again</span>
+                </button>
                 <FavouritesButton favourite={this.state.gifs.url} />
                 <CopyButton copy={this.state.gifs.url} />
               </div>
@@ -91,8 +96,8 @@ class Home extends React.Component {
           </div>
         </div>
       </section>
-    )
+    );
   }
 }
 
-export default Home
+export default Home;

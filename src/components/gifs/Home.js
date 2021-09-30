@@ -1,49 +1,49 @@
-import React from "react";
+import React from 'react'
 import {
   getPageLoadGif,
   getSearchResultGif,
-  getTryAgainGif,
-} from "../../lib/api";
+  getTryAgainGif
+} from '../../lib/api'
 
-import FavouritesButton from "../common/FavouritesButton";
-import CopyButton from "../common/CopyButton";
+import FavouritesButton from '../common/FavouritesButton'
+import CopyButton from '../common/CopyButton'
 
 class Home extends React.Component {
   state = {
     gifs: [],
-    tags: "",
-    copied: false,
+    tags: '',
+    copied: false
   };
 
   async componentDidMount() {
     try {
-      const res = await getPageLoadGif();
-      this.setState({ gifs: res.data.data.images.original });
+      const res = await getPageLoadGif()
+      this.setState({ gifs: res.data.data.images.original })
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   }
 
   handleChange = (event) => {
-    this.setState({ tags: event.target.value });
+    this.setState({ tags: event.target.value })
   };
 
   handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     try {
-      const res = await getSearchResultGif(this.state.tags);
-      this.setState({ gifs: res.data.data.images.original });
+      const res = await getSearchResultGif(this.state.tags)
+      this.setState({ gifs: res.data.data.images.original })
     } catch (err) {
-      console.log(err.response);
+      console.log(err.response)
     }
   };
 
   handleClick = async () => {
     try {
-      const res = await getTryAgainGif(this.state.tags);
-      this.setState({ gifs: res.data.data.images.original });
+      const res = await getTryAgainGif(this.state.tags)
+      this.setState({ gifs: res.data.data.images.original })
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   };
 
@@ -96,8 +96,8 @@ class Home extends React.Component {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default Home;
+export default Home

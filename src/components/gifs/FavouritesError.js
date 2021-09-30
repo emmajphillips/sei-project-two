@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const FavouritesError = () => {
   return (
@@ -9,7 +9,7 @@ const FavouritesError = () => {
             Oops, looks like you don&apos;t have any favourites yet!
           </h2>
           <h3>
-            Navigate to <a href="/">Home</a> to add some now or check out the{" "}
+            Navigate to <a href="/">Home</a> to add some now or check out the{' '}
             <a href="/trending">Trending GIFS</a> page
           </h3>
           <img
@@ -19,7 +19,7 @@ const FavouritesError = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default FavouritesError;
+export default FavouritesError

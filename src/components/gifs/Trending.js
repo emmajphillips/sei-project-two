@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react'
 
-import { getTrendingGifs } from "../../lib/api";
-import TrendingCard from "./TrendingCard";
+import { getTrendingGifs } from '../../lib/api'
+import TrendingCard from './TrendingCard'
 
 class Trending extends React.Component {
   state = {
-    trending: [],
+    trending: []
   };
   async componentDidMount() {
     try {
-      const res = await getTrendingGifs();
-      this.setState({ trending: res.data.data });
+      const res = await getTrendingGifs()
+      this.setState({ trending: res.data.data })
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   }
   render() {
@@ -26,7 +26,7 @@ class Trending extends React.Component {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
-export default Trending;
+export default Trending

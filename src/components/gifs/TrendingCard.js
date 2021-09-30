@@ -1,17 +1,17 @@
-import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import React from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-import CopyButton from "../common/CopyButton";
-import FavouritesButton from "../common/FavouritesButton";
+import CopyButton from '../common/CopyButton'
+import FavouritesButton from '../common/FavouritesButton'
 
 const TrendingCard = ({ images }) => {
   return (
     <div className="column is-fullwidth-mobile is-half-tablet is-one-quarter-desktop card">
       <div className="card">
         <div className="card-image">
-          <figure className="image is-4by3">
+          <figure className="image is-4by3">Í
             <LazyLoadImage
-              alt={"gif"}
+              alt={'gif'}
               src={images.original.url}
               placeholder={<span>Hello</span>}
             />
@@ -21,7 +21,7 @@ const TrendingCard = ({ images }) => {
         <FavouritesButton favourite={images.original.url} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TrendingCard;
+export default TrendingCard
